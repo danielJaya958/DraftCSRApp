@@ -48,7 +48,7 @@ interface DraftApiService {
     ): Response<DraftListResponse>
 
     // Semua service report (Draft, External, Internal)
-    @GET("api/ksm/GetServiceReportIT")
+    @GET("api/ksm/ServiceReportIT")
     suspend fun getServiceReports(
         @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int,

@@ -51,7 +51,9 @@ class ServiceReportFragment : Fragment(R.layout.fragment_service_report) {
     private val adapter = ServiceReportAdapter(
         onClick = { item ->
             if (item.isDraft()) host.openEditDraft(item.serviceReportId)
-            else host.showMessage("Detail report segera hadir")
+            else startActivity(
+                ServiceReportDetailActivity.intent(requireContext(), item.serviceReportId)
+            )
         },
         onLongClick = { item, view ->
             if (item.isDraft()) host.showQuickActions(item.serviceReportId, view)
