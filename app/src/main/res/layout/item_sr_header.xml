@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pemisah tanggal dibuat di daftar Service Report, mis. "Dibuat 3 Okt 2026" -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nd_surface_muted"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/nd_on_surface_variant"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:text="Dibuat 3 Okt 2026" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/nd_outline_variant" />
+</LinearLayout>

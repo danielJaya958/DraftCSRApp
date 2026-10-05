@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Label di atas setiap field form (Add/Edit Draft & Buat CSR) -->
+    <style name="NdFieldLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/nd_on_surface</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Kotak input outlined: sudut 12dp, garis tipis, hint dimatikan karena label sudah di atas -->
+    <style name="NdInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/nd_input_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="helperTextTextColor">@color/nd_on_surface_variant</item>
+        <item name="endIconTint">@color/nd_on_surface_variant</item>
+        <item name="startIconTint">@color/nd_on_surface_variant</item>
+    </style>
+
+    <!-- Sama seperti NdInput, versi dropdown (ExposedDropdownMenu) -->
+    <style name="NdInput.Dropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/nd_input_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="helperTextTextColor">@color/nd_on_surface_variant</item>
+        <item name="endIconTint">@color/nd_on_surface_variant</item>
+        <item name="startIconTint">@color/nd_on_surface_variant</item>
+    </style>
+
+    <!-- Teks di dalam kotak input -->
+    <style name="NdInputText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/nd_on_surface</item>
+        <item name="android:textColorHint">@color/nd_outline</item>
+    </style>
+
+    <!-- Chip kategori di halaman Service Report (Semua / Draft / External / Internal) -->
+    <style name="NdChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_chip</item>
+        <item name="android:textColor">@color/nd_chip_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Judul bagian di dialog filter -->
+    <style name="NdFilterSection">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/nd_on_surface</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Kotak pilih tanggal di dialog filter -->
+    <style name="NdDateField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:background">@drawable/bg_field_outline</item>
+        <item name="android:drawableEnd">@drawable/ic_event</item>
+        <item name="android:drawableTint">@color/nd_on_surface</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:hint">Pilih tanggal</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:textColor">@color/nd_on_surface</item>
+        <item name="android:textColorHint">@color/nd_outline</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Label item bottom navigation. Ukuran teks menyesuaikan lebar supaya
+         "Service Report" muat di layar sempit -->
+    <style name="NdNavLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/nd_on_surface_variant</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMinTextSize">9sp</item>
+        <item name="autoSizeMaxTextSize">12sp</item>
+    </style>
+
+    <!-- Dialog layar penuh (Filter report) -->
+    <style name="NdFullScreenDialog" parent="Theme.DraftCSRApp">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

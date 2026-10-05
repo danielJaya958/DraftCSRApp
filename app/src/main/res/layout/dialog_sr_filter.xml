@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dialog layar penuh "Filter report" di halaman Service Report -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nd_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Filter report"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:text="Tutup"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                style="@style/NdFilterSection"
+                android:text="Tanggal report" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dari"
+                        android:textColor="@color/nd_on_surface_variant"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvFrom"
+                        style="@style/NdDateField"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sampai"
+                        android:textColor="@color/nd_on_surface_variant"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvTo"
+                        style="@style/NdDateField"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/NdFilterSection"
+                android:layout_marginTop="28dp"
+                android:text="Teknisi" />
+
+            <TextView
+                android:id="@+id/tvNoTechnician"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Belum ada data teknisi. Muat daftar report terlebih dahulu."
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/techContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:divider="@drawable/divider_line"
+                android:orientation="vertical"
+                android:showDividers="middle" />
+
+            <TextView
+                style="@style/NdFilterSection"
+                android:layout_marginTop="28dp"
+                android:text="Tanda tangan customer" />
+
+            <RadioGroup
+                android:id="@+id/rgSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:divider="@drawable/divider_line"
+                android:showDividers="middle">
+
+                <RadioButton
+                    android:id="@+id/rbSignAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:text="Semua"
+                    android:textColor="@color/nd_on_surface"
+                    android:textSize="16sp"
+                    app:buttonTint="@color/nd_primary" />
+
+                <RadioButton
+                    android:id="@+id/rbSigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:text="Sudah ditandatangani"
+                    android:textColor="@color/nd_on_surface"
+                    android:textSize="16sp"
+                    app:buttonTint="@color/nd_primary" />
+
+                <RadioButton
+                    android:id="@+id/rbUnsigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:text="Belum ditandatangani"
+                    android:textColor="@color/nd_on_surface"
+                    android:textSize="16sp"
+                    app:buttonTint="@color/nd_primary" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/nd_outline_variant" />
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:paddingHorizontal="28dp"
+            android:text="Reset"
+            android:textColor="@color/nd_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/nd_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="Terapkan filter"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/nd_accent"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+</LinearLayout>

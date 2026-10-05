@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Palet NiagaDraft: navy sebagai warna utama (header, teks penting, tombol sekunder),
+         marun sebagai aksen untuk aksi utama (FAB, tombol "Terapkan", indikator tab aktif) -->
+    <color name="nd_primary">#0F1F3D</color>
+    <color name="nd_primary_light">#E3E8F1</color>
+    <color name="nd_primary_50">#F3F5F9</color>
+    <color name="nd_on_primary_muted">#B9C2D3</color>
+    <color name="nd_accent">#8E1B26</color>
+    <color name="nd_surface">#F8FAFC</color>
+    <color name="nd_on_surface">#0F172A</color>
+    <color name="nd_on_surface_variant">#64748B</color>
+    <color name="nd_outline">#94A3B8</color>
+    <color name="nd_outline_variant">#E2E8F0</color>
+    <color name="nd_error">#EF4444</color>
+    <color name="nd_amber_50">#FFFBEB</color>
+    <color name="nd_amber_600">#D97706</color>
+    <color name="nd_amber_900">#78350F</color>
+    <color name="nd_green_600">#16A34A</color>
+    <color name="nd_input_border">#CBD5E1</color>
+    <color name="nd_surface_muted">#F1F3F7</color>
+    <color name="nd_filter_stroke">#5D6A85</color>
+    <color name="nd_skeleton_dark">#DCE1EA</color>
+    <color name="nd_skeleton_light">#EAEDF2</color>
 </resources>

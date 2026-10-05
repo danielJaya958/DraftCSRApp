@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Header navy: judul, jumlah report, pencarian & tombol filter -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nd_primary"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Report"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/nd_on_primary_muted"
+            android:textSize="13sp"
+            tools:text="5.697 report, halaman 1 dari 228" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@drawable/bg_search_field"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/nd_on_surface_variant"
+                android:hint="Cari no. registrasi atau customer"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/nd_on_surface"
+                android:textColorHint="@color/nd_outline"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/btnFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_filter_button"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_filter"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Filter"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Chip kategori -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:id="@+id/chipAll"
+                style="@style/NdChip"
+                tools:text="Semua" />
+
+            <TextView
+                android:id="@+id/chipDraft"
+                style="@style/NdChip"
+                tools:text="Draft" />
+
+            <TextView
+                android:id="@+id/chipExternal"
+                style="@style/NdChip"
+                tools:text="External" />
+
+            <TextView
+                android:id="@+id/chipInternal"
+                style="@style/NdChip"
+                tools:text="Internal" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/nd_outline_variant" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvReports"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="56dp" />
+
+        <!-- Loading awal: baris placeholder berdenyut -->
+        <LinearLayout
+            android:id="@+id/skeletonView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nd_surface_muted"
+                android:padding="16dp"
+                android:text="Memuat service report dari server…"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/skeletonRows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingBottom="48dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivEmpty"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_document"
+                app:tint="@color/nd_primary" />
+
+            <TextView
+                android:id="@+id/tvEmptyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@color/nd_on_surface"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Belum ada service report" />
+
+            <TextView
+                android:id="@+id/tvEmptyDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEmptyAction"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:paddingHorizontal="28dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/nd_accent"
+                app:cornerRadius="12dp"
+                tools:text="Buat draft pertama" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/errorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingBottom="48dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_warning"
+                app:tint="@color/nd_accent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Report gagal dimuat"
+                android:textColor="@color/nd_on_surface"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvErrorDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:paddingHorizontal="32dp"
+                android:text="Coba lagi"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/nd_primary"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+        <!-- Memuat halaman berikutnya -->
+        <ProgressBar
+            android:id="@+id/progressMore"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="@color/nd_primary"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

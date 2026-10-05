@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Top bar: tombol kembali + judul & subjudul -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:padding="12dp"
+            android:rotation="180"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="@color/nd_on_surface" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Draft Baru"
+                android:textColor="@color/nd_on_surface"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Isi data awal laporan servis"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/nd_outline_variant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <!-- Konten form: kartu info (mode edit) + kartu field + tombol simpan, dalam satu scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/nd_surface"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="28dp">
+
+            <LinearLayout
+                android:id="@+id/cardInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_info_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/ivInfoIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_circle_solid"
+                    android:backgroundTint="@color/nd_primary_light"
+                    android:importantForAccessibility="no"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_edit"
+                    app:tint="@color/nd_primary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Registrasi"
+                        android:textColor="@color/nd_on_surface_variant"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvInfoValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="middle"
+                        android:maxLines="1"
+                        android:textColor="@color/nd_on_surface"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="CCIT/IT/JY-IX-2026/002/007" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/nd_outline_variant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:id="@+id/tvSectionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informasi Draft"
+                        android:textColor="@color/nd_on_surface"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSectionSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Pesan error dan pelanggan terkait"
+                        android:textColor="@color/nd_on_surface_variant"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@color/nd_outline_variant" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFields"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:text="Simpan Draft"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/nd_primary"
+                    app:cornerRadius="14dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressSubmit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:elevation="8dp"
+                    android:indeterminateTint="@color/white"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Kolom bertanda * wajib diisi"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/nd_primary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+    <TextView
+        android:id="@+id/tvLoadError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="24dp"
+        android:textColor="@color/nd_error"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topDivider" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

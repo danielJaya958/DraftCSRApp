@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Top bar navy, padding atas ditambah tinggi status bar (applyStatusBarPadding) -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nd_primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CSR-DRAFT"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/btnNotif"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notifikasi">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_notifications"
+                app:tint="@color/white" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_notif_dot" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvAvatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_avatar"
+            android:contentDescription="Akun"
+            android:gravity="center"
+            android:textColor="@color/nd_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="J" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Draft belum selesai"
+            android:textColor="@color/nd_on_surface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/nd_on_surface_variant"
+            android:textSize="14sp"
+            tools:text="3 draft menunggu dilengkapi sebelum menjadi service report. Tekan lama sebuah draft untuk opsi lainnya." />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/nd_outline_variant" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDrafts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="48dp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/nd_primary"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/stateView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/nd_on_surface_variant"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="28dp"
+                android:text="Coba lagi"
+                android:textStyle="bold"
+                app:backgroundTint="@color/nd_primary"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

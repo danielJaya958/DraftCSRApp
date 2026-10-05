@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Salinan baris yang ditekan & tahan, tampil "terangkat" di overlay menu aksi cepat -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="8dp">
+
+    <ImageView
+        android:id="@+id/ivSnapshot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_selected_outline" />
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="10dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_check_circle" />
+</FrameLayout>

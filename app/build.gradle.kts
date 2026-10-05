@@ -50,6 +50,7 @@
         implementation(libs.material)
         implementation(libs.androidx.activity)
         implementation(libs.androidx.constraintlayout)
+        implementation("androidx.fragment:fragment-ktx:1.8.5")
 
         // Retrofit & OkHttp untuk komunikasi dengan ASP.NET Core
         implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -57,8 +58,11 @@
         implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
         // Hilt Dependency Injection
-        implementation("com.google.dagger:hilt-android:2.48")
-        kapt("com.google.dagger:hilt-android-compiler:2.48")
+        implementation("com.google.dagger:hilt-android:2.51.1")
+        kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+        // RecyclerView untuk daftar draft
+        implementation("androidx.recyclerview:recyclerview:1.3.2")
 
         // Jetpack Security (Untuk enkripsi JWT token)
         implementation("androidx.security:security-crypto:1.1.0-alpha06")

@@ -1,8 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DraftCSRApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Theme dikunci Light (bukan DayNight): semua layar didesain untuk latar terang saja.
+         Kalau pakai DayNight, HP yang dark mode bikin warna teks input jadi terang di atas
+         kotak input putih -> nyaris tidak terbaca. -->
+    <style name="Base.Theme.DraftCSRApp" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Warna utama NiagaDraft (tanpa ini M3 pakai ungu bawaan untuk fokus/kursor/tombol) -->
+        <item name="colorPrimary">@color/nd_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/nd_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/nd_primary</item>
+        <item name="android:textColorPrimary">@color/nd_on_surface</item>
+        <item name="android:editTextColor">@color/nd_on_surface</item>
+        <item name="android:textColorHint">@color/nd_on_surface_variant</item>
     </style>
 
     <style name="Theme.DraftCSRApp" parent="Base.Theme.DraftCSRApp" />

@@ -11,6 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.ksm.draftcsrapp.databinding.ActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -18,14 +19,40 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
+    @Inject
+    lateinit var tokenManager: TokenManager
+
+    @Inject
+    lateinit var authRepository: AuthRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Sudah login (token masih valid) -> langsung ke MainActivity
+        if (tokenManager.hasValidToken()) {
+            goToMain()
+            return
+        }
+
         // Inisialisasi View Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupClickListeners()
         observeViewModel()
+
+        // Access token habis tapi refresh token ada -> coba perbarui diam-diam
+        if (tokenManager.getRefreshToken() != null) {
+            showLoading(true)
+            lifecycleScope.launch {
+                if (authRepository.refreshSession()) goToMain() else showLoading(false)
+            }
+        }
+    }
+
+    private fun goToMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun setupClickListeners() {

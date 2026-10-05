@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="18dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        style="@style/NdFieldLabel" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCustomer"
+        style="@style/NdInput.Dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_group">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/actvCustomer"
+            style="@style/NdInputText"
+            android:completionThreshold="1"
+            android:hint="Cari atau pilih pelanggan"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Hanya tampil di layar Buat CSR (includeModelUnitField = true) -->
+    <LinearLayout
+        android:id="@+id/groupModelUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvModelUnitLabel"
+            style="@style/NdFieldLabel" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilModelUnit"
+                style="@style/NdInput.Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/actvModelUnit"
+                    style="@style/NdInputText"
+                    android:hint="Pilih model/unit"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/progressModelUnit"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="end|top"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="48dp"
+                android:indeterminateTint="@color/nd_primary"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

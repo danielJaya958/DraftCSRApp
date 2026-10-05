@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.DraftCSRApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- App ini belum didesain dark mode: samakan dengan values/themes.xml (Light) supaya
+         HP yang dark mode tidak memaksa teks input jadi terang di atas kotak putih. -->
+    <style name="Base.Theme.DraftCSRApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/nd_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/nd_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/nd_primary</item>
+        <item name="android:textColorPrimary">@color/nd_on_surface</item>
+        <item name="android:editTextColor">@color/nd_on_surface</item>
+        <item name="android:textColorHint">@color/nd_on_surface_variant</item>
     </style>
 </resources>

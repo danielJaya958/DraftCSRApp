@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Satu baris pilihan di popup dropdown (pelanggan, model/unit, pilihan tetap) -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="14dp"
+    android:textColor="@color/nd_on_surface"
+    android:textSize="14sp" />
